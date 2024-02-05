@@ -31,6 +31,8 @@ public class SeleniumExample {
         Assert.assertEquals(actualTitleText,"TEK Insurance App");
         System.out.println(actualTitleText);
         System.out.println("actual and expected title are the same");
+        String title = driver.getTitle();
+        System.out.println("Title: " + title);
 
     }
 
