@@ -9,21 +9,31 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
-import tek.tdd.pages.HomePage;
-import tek.tdd.pages.LoginPage;
+import tek.tdd.pages.*;
+import tek.tdd.utility.FakeData;
+import tek.tdd.utility.DateUtility;
 import tek.tdd.utility.SeleniumUtilities;
 
 @Listeners(ExtentITestListenerClassAdapter.class)
 public class UITestBase extends SeleniumUtilities {
-
-    protected HomePage homePage;
-    protected LoginPage loginPage;
+   public POMFactory factory = new POMFactory();
+   public FakeData fakeData = new FakeData();
+   public DateUtility dateUtility = new DateUtility();
+//    public HomePage homePage;
+//    public LoginPage loginPage;
+//    public PlanCodePage planCodePage;
+//    public CreateAccountPage createAccountPage;
+//    public UserProfilePage userProfilePage;
 
     @BeforeMethod
     public void initializeTest() {
         openBrowser();
-        homePage = new HomePage();
-        loginPage = new LoginPage();
+
+//        this.homePage = new HomePage();
+//        this.loginPage = new LoginPage();
+//        this.planCodePage = new PlanCodePage();
+//        this.createAccountPage = new CreateAccountPage();
+//        this.userProfilePage = new UserProfilePage();
     }
 
 

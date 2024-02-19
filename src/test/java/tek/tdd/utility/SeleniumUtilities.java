@@ -1,24 +1,24 @@
 package tek.tdd.utility;
 
 import com.aventstack.extentreports.service.ExtentTestManager;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import tek.tdd.base.BaseSetup;
 
 import java.time.Duration;
 
 public class SeleniumUtilities extends BaseSetup {
 
+    private static final Logger LOG = LogManager.getLogger(SeleniumUtilities.class);
 
-
-    public String extentInfo(String string){
-        return ExtentTestManager.getTest().info(string).toString();
-    }
-    public void extentInfo1(String string){
+    public void extentInfo(String string) {
         ExtentTestManager.getTest().info(string);
     }
-
     public WebDriverWait getWait() {
         return new WebDriverWait(getDriver(), Duration.ofSeconds(10));
     }
@@ -39,10 +39,55 @@ public class SeleniumUtilities extends BaseSetup {
         waitTillClickable(element).click();
     }
 
-    public void sendText(WebElement element, String text){
+    public void sendText(WebElement element, String text) {
         waitTillVisible(element).sendKeys(text);
     }
-    public boolean isElementDisplayed(WebElement element){
+
+    public boolean isElementDisplayed(WebElement element) {
         return waitTillVisible(element).isDisplayed();
     }
+
+    public void waitTime(int milliSecond) {
+        try {
+            Thread.sleep(milliSecond);
+        } catch (InterruptedException exception) {
+            Thread.currentThread().interrupt();
+        }
+    }
+
+    public void assertEqual(String actual, String expected, String message) {
+        reportAndLog("Asserting actual " + actual + " expected " + expected);
+        Assert.assertEquals(actual, expected, message);
+    }
+
+    public void assertEqual(int actual, int expected, String message) {
+        reportAndLog("Asserting actual " + actual + " expected " + expected);
+        Assert.assertEquals(actual, expected, message);
+
+    }
+
+    public void reportAndLog(String text) {
+        LOG.info(text);
+        ExtentTestManager.getTest().info(text);
+    }
+
+    public void selectByDropdown(WebElement element, String text) {
+        Select select = new Select(element);
+        select.selectByVisibleText(text);
+    }
+
+    public void selectByDropdown(WebElement element, int index) {
+        Select select = new Select(element);
+        select.selectByIndex(index);
+    }
+
+    public void waitForSpinner(WebElement element) {
+        getWait().until(ExpectedConditions.visibilityOf(element));
+        getWait().until(ExpectedConditions.invisibilityOf(element));
+    }
+    public void logInfo(String text){
+        LOG.info(text);
+    }
 }
+
+

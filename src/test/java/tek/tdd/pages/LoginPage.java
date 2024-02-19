@@ -27,9 +27,25 @@ public class LoginPage extends SeleniumUtilities {
     @FindBy(xpath = "//button[text()='Sign In']")
     public WebElement signInButton;
 
-    @FindBy(xpath = "//h2[text()='Customer Service Portal']")
-    public WebElement csrTitle;
+    @FindBy(xpath = "//div[@id='root']/div/div/div/h2[1]")
+    public WebElement homePageTitle;
 
     @FindBy(xpath = "//div[@data-status='error' and @role='alert']")
     public WebElement errorMessageElement;
+    @FindBy(xpath = "//button[text()='Logout']")
+    public WebElement logoutButton;
+
+    public void getLogin(String username, String password){
+        click(loginButton);
+        sendText(userNameInput,username);
+        sendText(passwordInput,password);
+        click(signInButton);
+        waitTime(500);
+        extentInfo("After providing the username and password should log in to the account");
+
+    }
+
+    public String getErrorMessage(){
+        return getElementText(errorMessageElement);
+    }
 }
