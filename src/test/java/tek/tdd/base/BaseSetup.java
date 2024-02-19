@@ -25,24 +25,25 @@ public class BaseSetup {
         Properties configs = readProperties();
         String browserType = configs.getProperty("browser");
         boolean headless = Boolean.parseBoolean(configs.getProperty("headless"));
+        System.out.println(headless);
         if (browserType.equalsIgnoreCase("chrome")) {
             ChromeOptions options = new ChromeOptions();
             if (headless) {
                 options.addArguments("--headless");
             }
-            driver = new ChromeDriver();
+            driver = new ChromeDriver(options);
         } else if (browserType.equalsIgnoreCase("firefox")) {
             FirefoxOptions options = new FirefoxOptions();
             if (headless) {
                 options.addArguments("-headless");
             }
-            driver = new FirefoxDriver();
+            driver = new FirefoxDriver(options);
         } else if (browserType.equalsIgnoreCase("edge")) {
             EdgeOptions options = new EdgeOptions();
             if (headless) {
                 options.addArguments("--headless");
             }
-            driver = new EdgeDriver();
+            driver = new EdgeDriver(options);
         } else {
             LOG.error("Wrong browser type check config file");
             throw new RuntimeException("Wrong browser type check config file");
