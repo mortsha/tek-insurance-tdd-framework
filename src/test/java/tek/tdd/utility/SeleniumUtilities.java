@@ -19,6 +19,7 @@ public class SeleniumUtilities extends BaseSetup {
     public void extentInfo(String string) {
         ExtentTestManager.getTest().info(string);
     }
+
     public WebDriverWait getWait() {
         return new WebDriverWait(getDriver(), Duration.ofSeconds(10));
     }
@@ -32,10 +33,12 @@ public class SeleniumUtilities extends BaseSetup {
     }
 
     public String getElementText(WebElement element) {
+        LOG.info("Get element text {}",element);
         return waitTillVisible(element).getText();
     }
 
     public void click(WebElement element) {
+        LOG.info("Click on element {}",element);
         waitTillClickable(element).click();
     }
 
@@ -85,7 +88,8 @@ public class SeleniumUtilities extends BaseSetup {
         getWait().until(ExpectedConditions.visibilityOf(element));
         getWait().until(ExpectedConditions.invisibilityOf(element));
     }
-    public void logInfo(String text){
+
+    public void logInfo(String text) {
         LOG.info(text);
     }
 }

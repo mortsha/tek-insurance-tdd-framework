@@ -16,13 +16,13 @@ public class UserProfilePage extends SeleniumUtilities {
     public WebElement profileButton;
     @FindBy(xpath = "//p[contains(text(),'STATUS')]//parent::div//span/span")
     public WebElement statusProfile;
-    @FindBy(xpath = "//p[text()='USER TYPE']//following-sibling::p")
+    @FindBy(xpath = "//p[contains(text(),'USER TYPE')]//following-sibling::p")
     public WebElement userTypeProfileText;
-    @FindBy(xpath = "//p[text()='FULL NAME']//following-sibling::p")
+    @FindBy(xpath = "//p[contains(text(),'FULL NAME')]//following-sibling::p")
     public WebElement fullNameProfileText;
-    @FindBy(xpath = "//p[text()='USERNAME']//following-sibling::p")
+    @FindBy(xpath = "//p[contains(text(),'USERNAME')]//following-sibling::p")
     public WebElement userNameProfileText;
-    @FindBy(xpath = "//p[text()='AUTHORITIES']//parent::div/ul/li")
+    @FindBy(xpath = "//p[contains(text(),'AUTHORITIES')]//parent::div/ul/li")
     public WebElement authoritiesProfileText;
 
     public void validateUserProfile(String status, String userType,String fullName,String username,String authorities){

@@ -10,6 +10,7 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import tek.tdd.utility.Constants;
+import tek.tdd.utility.SeleniumUtilities;
 
 import java.io.FileInputStream;
 import java.io.IOException;
