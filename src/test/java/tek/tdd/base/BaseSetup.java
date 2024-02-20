@@ -25,7 +25,6 @@ public class BaseSetup {
         Properties configs = readProperties();
         String browserType = configs.getProperty("browser");
         boolean headless = Boolean.parseBoolean(configs.getProperty("headless"));
-        System.out.println(headless);
         if (browserType.equalsIgnoreCase("chrome")) {
             ChromeOptions options = new ChromeOptions();
             if (headless) {
@@ -66,6 +65,8 @@ public class BaseSetup {
             propertyFilePath = Constants.CONFIG_FILE_ENV_PATH + targetEnvironment + "_env.properties";
         }
             LOG.info("Config file path ::::: " + propertyFilePath);
+        System.out.println("printing Config file path: " + propertyFilePath);
+        LOG.info("Config file path with message method "  + propertyFilePath);
         Properties properties = new Properties();
 
         try {

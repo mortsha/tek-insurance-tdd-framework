@@ -18,10 +18,13 @@ public class CSRAccountsPage extends SeleniumUtilities {
     public List<WebElement> accountsRows;
     @FindBy(xpath = "//table/following-sibling::div//select")
     public WebElement showDropdown;
+    @FindBy(css = "div.chakra-spinner")
+    public WebElement spinner;
 
     public void clickOnAccounts() {
         click(accountsSection);
         extentInfo("After click on account section the Primary accounts information with table rows and columns should displayed ");
+
     }
 
     public int getAccountsTableRows() {

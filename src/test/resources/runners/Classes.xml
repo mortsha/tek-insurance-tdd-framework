@@ -1,21 +1,32 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
 <suite name = "Insurance App Automation Framework">
-          <test name="TestRunner">
+          <test name="Specific class">
 
 <!--              Execution Option 1-->
 <!--              execute tests by package-->
-              <packages>
-                  <package name="tek.tdd.tests.smoke"/>
-                  <package name="tek.tdd.tests.regression"/>
+<!--              <packages>-->
+<!--                  <package name="tek.tdd.tests.smoke"/>-->
+<!--                  <package name="tek.tdd.tests.regression"/>-->
 
-              </packages>
+<!--              </packages>-->
 
 <!--              Execution Option 2-->
-<!--              <classes>-->
-<!--                  <class name="tek.tdd.tests.smoke.HomePageTests"/>-->
-<!--              </classes>-->
+              <classes>
+                  <class name="tek.tdd.tests.regression.UserProfileTest"/>
+              </classes>
+<classes>
+    <class name="tek.tdd.tests.regression.CSRAccountsTest">
 
+        <methods>
+            <include name="testPrimaryAccountsVerifyRows"/>
+        </methods>
+        <rerun-failed>
+            <include
+        </rerun-failed>
+    </class>
+
+</classes>
 <!--              Execution Option 3-->
 
 <!--              <classes>-->

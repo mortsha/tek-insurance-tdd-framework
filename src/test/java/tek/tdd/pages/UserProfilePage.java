@@ -14,7 +14,7 @@ public class UserProfilePage extends SeleniumUtilities {
 
     @FindBy(xpath = "//div[@id='root']/div/div/div/button")
     public WebElement profileButton;
-    @FindBy(xpath = "//p[text()='STATUS']//parent::div//span/span")
+    @FindBy(xpath = "//p[contains(text(),'STATUS')]//parent::div//span/span")
     public WebElement statusProfile;
     @FindBy(xpath = "//p[text()='USER TYPE']//following-sibling::p")
     public WebElement userTypeProfileText;

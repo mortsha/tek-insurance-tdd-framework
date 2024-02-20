@@ -24,6 +24,7 @@ public class PlanCodePage extends SeleniumUtilities {
 
     public void clickOnPlanLink(){
         click(plansLink);
+        extentInfo("After click on plans section the today plans price table should displayed ");
     }
 
     public int getPlanCodeTableRows(){

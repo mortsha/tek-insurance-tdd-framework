@@ -12,11 +12,16 @@ public class AuthenticateTestBase extends UITestBase {
     public void loginCSRAccounts() {
         csrLogin();
         factory.getCSRAccountsPage().clickOnAccounts();
+        waitForSpinner();
+    }
+    public void waitForSpinner(){
+        waitForSpinner(factory.getCSRAccountsPage().spinner);
     }
 
     public void plansLogin() {
         csrLogin();
         factory.getPlanCodePage().clickOnPlanLink();
+        waitForSpinner();
     }
 
     public void logoutAccount() {
